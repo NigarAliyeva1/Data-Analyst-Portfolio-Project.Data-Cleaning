@@ -1,14 +1,13 @@
 -- Standardize Date Format
 
+SELECT SaleDate, convert(date,SaleDate)
+FROM PortfolioProject..NashvilleHousing
 
-Select SaleDateConverted, CONVERT(Date,SaleDate)
-From PortfolioProject.dbo.NashvilleHousing
+ALTER TABLE PortfolioProject..NashvilleHousing
+ALTER COLUMN SaleDate Date
 
 
-Update NashvilleHousing
-SET SaleDate = CONVERT(Date,SaleDate)
-
--- Sometimes first way dosen't work
+-- 2nd way
 
 ALTER TABLE NashvilleHousing
 Add SaleDateConverted Date;
